@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+div.posttop{
+    position: relative;
+    height:800px;
+}
+
+.posttop:after{
+    content: "";
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+
+#posttop_comment{
+    position:absolute;
+    left:60%;
+    top:15%;
+    width: 40%;
+    float:right;
+    font-size:14px;
+    height:600px;
+    overflow: scroll;
+}
+table#posttop_table{
+    width:800px
+}
+.posttop_post{
+    position:absolute;
+    top:10%;
+    left:60%;
+}

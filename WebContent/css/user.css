@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+table.user_show{
+    width:45%;
+}
+p.user_show{
+    width: 25%;
+    float:left;
+}
+
+
+div#usershow{
+    position: relative;
+    height:800px;
+}
+
+.usershow:after{
+    content: "";
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+
+#user_posttop_comment{
+    float:right;
+    font-size:14px;
+    height:500px;
+    overflow-y: scroll;
+}
+table#user_posttop_table{
+    width:800px
+    left:0px;
+
+}
+
+
+#user_question_comment{
+    position:absolute;
+    left:60%;
+    top:8%;
+    width: 40%;
+    float:right;
+    font-size:14px;
+    height:200px;
+    overflow: scroll;
+}
+table.user_questiontop_table{
+    width:800px
+}
+.user_question_list{
+    position:absolute;
+    top:0%;
+    left:60%;
+}

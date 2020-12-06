@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+div#questiontop{
+    position: relative;
+    height:800px;
+}
+
+#questiontop:after{
+    content: "";
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+
+div#question_comment{
+    position:absolute;
+    left:60%;
+    top:3%;
+    width: 40%;
+    float:right;
+    font-size:14px;
+    height:500px;
+    overflow-y: scroll;
+}
+
+.questiontop_question{
+    position:absolute;
+    top:0%;
+    left:60%;
+}
+
+h3.question_top{
+    width:30%;
+    left:60%;
+    top:10%;
+    position:absolute;
+}
