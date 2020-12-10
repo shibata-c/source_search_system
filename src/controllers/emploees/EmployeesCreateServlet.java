@@ -39,17 +39,16 @@ public class EmployeesCreateServlet extends HttpServlet {
         String _token = (String)request.getParameter("_token");
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
-
+            //Userのインスタンス化
             Employee e = new Employee();
 
+            //受け取ったパラメーターをUSERのカラムに格納
             e.setCode(request.getParameter("code"));
             e.setName(request.getParameter("name"));
             e.setPassword(
                 EncryptUtil.getPasswordEncrypt(
                     request.getParameter("password"),
-                        (String)this.getServletContext().getAttribute("pepper")
-                    )
-                );
+                        (String)this.getServletContext().getAttribute("pepper")));
             e.setAdmin_flag(Integer.parseInt(request.getParameter("admin_flag")));
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
@@ -57,8 +56,10 @@ public class EmployeesCreateServlet extends HttpServlet {
             e.setUpdated_at(currentTime);
             e.setDelete_flag(0);
 
+            //validatorを起動させエラーの確認
             List<String> errors = EmployeeValidator.validate(e, true, true);
             if(errors.size() > 0) {
+                //エラーがある場合データベースとの接続を終了させUSERとエラー内容を返す
                 em.close();
 
                 request.setAttribute("_token", request.getSession().getId());
