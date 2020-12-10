@@ -46,7 +46,7 @@
                                 }
                             </script>
                         </td>
-                        <td class="report_action"><a href="<c:url value='/posts/show?id=${post.id}' />">詳細を見る</a></td>
+                        <td class="report_action"><a href="<c:url value='/post/show?id=${post.id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
