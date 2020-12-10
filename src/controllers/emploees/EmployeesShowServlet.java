@@ -37,16 +37,20 @@ public class EmployeesShowServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
+        //選択されたUSERのデータを一件取得
         Employee e = em.find(Employee.class, Integer.parseInt(request.getParameter("id")));
 
+        //全質問の受け取り
         List<Question> questions = em.createNamedQuery("getAllQuestions", Question.class)
                 .getResultList();
 
+        //ログインしたUSERのデータを取得
         Employee login_employee = (Employee)request.getSession().getAttribute("login_employee");
+
+        //全投稿の受け取り
         List<Post> posts = em.createNamedQuery("getMyAllPosts", Post.class)
                 .setParameter("employee", login_employee)
                 .getResultList();
-
         em.close();
 
         request.setAttribute("employee", e);
